@@ -1,0 +1,27 @@
+:root {
+  --c-bg: #fafaf9;
+  --c-surface: #ffffff;
+  --c-surface-2: #f4f4f3;
+
+  --c-text: #111111;
+  --c-text-muted: #5b5b5b;
+  --c-text-subtle: #8a8a8a;
+
+  --c-border: #e5e5e3;
+  --c-border-strong: #cfcfcd;
+
+  --c-accent: #1f1f1f;
+
+  --c-status-ur: #b45309;
+  --c-status-ur-bg: #fef3c7;
+  --c-status-closed: #166534;
+  --c-status-closed-bg: #dcfce7;
+  --c-status-cufc: #1e3a8a;
+  --c-status-cufc-bg: #dbeafe;
+
+  --r-sm: 2px;
+  --r-md: 4px;
+
+  --shadow-modal: 0 8px 24px rgba(15, 15, 15, 0.12);
+  --shadow-popover: 0 4px 12px rgba(15, 15, 15, 0.08);
+}
