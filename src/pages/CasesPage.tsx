@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/Button';
 import { Modal } from '@/components/ui/Modal';
 import { CasesFilters } from '@/components/cases/CasesFilters';
 import { CasesTable } from '@/components/cases/CasesTable';
-import { CaseListSidebar } from '@/components/cases/CaseListSidebar';
 import { CaseDetailPanel } from '@/components/cases/CaseDetailPanel';
 import { CaseHistoryPanel } from '@/components/cases/CaseHistoryPanel';
 import { applyCasesQuery, useCasesQuery } from '@/components/cases/useCasesQuery';
@@ -62,8 +61,8 @@ export function CasesPage() {
 
   if (selected) {
     return (
-      <div className="flex h-[calc(100vh-3rem)] flex-col">
-        <div className="flex items-center justify-between border-b border-border bg-surface px-4 py-2">
+      <div className="flex flex-col">
+        <div className="sticky top-12 z-20 flex items-center justify-between border-b border-border bg-surface px-4 py-2">
           <button
             onClick={handleClearSelection}
             className="text-xs text-text-muted hover:text-text"
@@ -74,19 +73,18 @@ export function CasesPage() {
             New case
           </Button>
         </div>
-        <div className="grid min-h-0 flex-1 grid-cols-[280px_minmax(0,1fr)_300px]">
-          <CaseListSidebar
-            cases={filtered}
-            selectedId={selectedId}
-            onSelect={handleSelect}
-          />
-          <CaseDetailPanel
-            case={selected}
-            canDelete={role === 'admin'}
-            onEdit={() => navigate(`/cases/${selected.id}/edit`)}
-            onDelete={() => handleDelete(selected.id)}
-          />
-          <CaseHistoryPanel case={selected} />
+        <div className="mx-auto grid w-full max-w-[1400px] grid-cols-1 gap-4 px-4 py-4 lg:grid-cols-[minmax(0,1fr)_320px]">
+          <div className="border border-border bg-surface">
+            <CaseDetailPanel
+              case={selected}
+              canDelete={role === 'admin'}
+              onEdit={() => navigate(`/cases/${selected.id}/edit`)}
+              onDelete={() => handleDelete(selected.id)}
+            />
+          </div>
+          <div className="border border-border bg-surface lg:self-start lg:sticky lg:top-[5.25rem]">
+            <CaseHistoryPanel case={selected} />
+          </div>
         </div>
 
         <Modal

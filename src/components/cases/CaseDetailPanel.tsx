@@ -14,8 +14,8 @@ interface Props {
 export function CaseDetailPanel({ case: c, canDelete, onEdit, onDelete, onRestore }: Props) {
   const isDeleted = !!c.deletedAt;
   return (
-    <section className="scroll-thin h-full overflow-auto bg-bg">
-      <header className="sticky top-0 z-10 border-b border-border bg-surface px-6 py-4">
+    <section className="bg-surface">
+      <header className="border-b border-border bg-surface px-6 py-4">
         <div className="flex items-start justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">

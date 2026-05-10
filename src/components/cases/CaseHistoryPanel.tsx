@@ -20,8 +20,8 @@ export function CaseHistoryPanel({ case: c }: { case: Case }) {
   events.sort((a, b) => (a.at < b.at ? 1 : -1));
 
   return (
-    <aside className="scroll-thin h-full overflow-auto border-l border-border bg-surface">
-      <div className="sticky top-0 flex h-9 items-center border-b border-border bg-surface-2 px-3">
+    <aside className="bg-surface">
+      <div className="flex h-9 items-center border-b border-border bg-surface-2 px-3">
         <span className="label-caps">History</span>
       </div>
 
