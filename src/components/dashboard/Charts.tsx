@@ -2,6 +2,7 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
+  Cell,
   Line,
   LineChart,
   ResponsiveContainer,
@@ -50,7 +51,7 @@ export function VBar({ data }: { data: Datum[] }) {
   );
 }
 
-export function HBar({ data }: { data: Datum[] }) {
+export function HBar({ data, colorMap }: { data: Datum[]; colorMap?: Record<string, string> }) {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <BarChart data={data} layout="vertical" margin={{ top: 4, right: 12, left: 8, bottom: 4 }}>
@@ -61,7 +62,11 @@ export function HBar({ data }: { data: Datum[] }) {
           cursor={{ fill: 'rgba(0,0,0,0.04)' }}
           contentStyle={{ background: '#fff', border: '1px solid #cfcfcd', borderRadius: 2, fontSize: 12 }}
         />
-        <Bar dataKey="value" fill={BAR} radius={[0, 2, 2, 0]} maxBarSize={20} />
+        <Bar dataKey="value" fill={BAR} radius={[0, 2, 2, 0]} maxBarSize={20}>
+          {colorMap && data.map((entry) => (
+            <Cell key={entry.name} fill={colorMap[entry.name] ?? BAR} />
+          ))}
+        </Bar>
       </BarChart>
     </ResponsiveContainer>
   );

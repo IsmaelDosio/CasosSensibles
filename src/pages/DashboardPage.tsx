@@ -80,7 +80,7 @@ export function DashboardPage() {
 
         <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
           <ChartCard title="By status">
-            <HBar data={totals.byStatus} />
+            <HBar data={totals.byStatus} colorMap={{ UR: '#b45309', CLOSED: '#166534', CUFC: '#1e3a8a' }} />
           </ChartCard>
           <ChartCard title="By channel">
             <VBar data={totals.byChannel} />
